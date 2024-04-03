@@ -13,6 +13,8 @@ DispSel_cl::DispSel_cl(cl_context *context, cl_command_queue *commandQueue, cl_d
 {
     // fprintf(stderr, "Winner-Takes-All Disparity Selection\n" );
 
+    std::cout << "Running DispSel_cl.h\n";
+
     // OpenCL Setup
     program = 0;
     //    imgType = I->type() & CV_MAT_DEPTH_MASK;
