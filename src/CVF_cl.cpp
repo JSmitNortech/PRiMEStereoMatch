@@ -123,6 +123,7 @@ CVF_cl::CVF_cl(cl_context *context, cl_command_queue *commandQueue, cl_device_id
 
 	for (int i = 0; i < 6; i++)
 	{
+		std::cout << "creating buffer " << i << "\n";
 		Ixx[i] = clCreateBuffer(*context, CL_MEM_READ_WRITE, bufferSize_2D, NULL, &errorNumber);
 		createMemoryObjectsSuccess &= checkSuccess(errorNumber);
 		mean_Ixx[i] = clCreateBuffer(*context, CL_MEM_READ_WRITE, bufferSize_2D, NULL, &errorNumber);
@@ -139,6 +140,8 @@ CVF_cl::CVF_cl(cl_context *context, cl_command_queue *commandQueue, cl_device_id
 			createMemoryObjectsSuccess &= checkSuccess(errorNumber);
 		}
 	}
+
+	std::cout << "end for\n";
 
 	mean_cv = clCreateBuffer(*context, CL_MEM_READ_WRITE, bufferSize_3D, NULL, &errorNumber);
 	createMemoryObjectsSuccess &= checkSuccess(errorNumber);
@@ -160,6 +163,8 @@ CVF_cl::CVF_cl(cl_context *context, cl_command_queue *commandQueue, cl_device_id
 	createMemoryObjectsSuccess &= checkSuccess(errorNumber);
 	bf3Dtmp = clCreateBuffer(*context, CL_MEM_READ_WRITE, bufferSize_3D, NULL, &errorNumber);
 	createMemoryObjectsSuccess &= checkSuccess(errorNumber);
+
+	std::cout << "create memory object check\n";
 
 	if (!createMemoryObjectsSuccess)
 	{
